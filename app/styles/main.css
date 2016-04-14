@@ -1,12 +1,5 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-body {
-  padding: 0;
+body{
+    background-color: skyblue!important;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -19,7 +12,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 }
 /* Make the masthead heading the same height as the navigation */
@@ -33,10 +25,11 @@ body {
 /* Custom page footer */
 .footer {
   padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+  color: #777; 
 }
-
+.container{
+    text-align: center;
+}
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -63,6 +56,7 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
+    background-color: white;
   }
 
   /* Remove the padding we set earlier */
@@ -71,6 +65,7 @@ body {
   .footer {
     padding-left: 0;
     padding-right: 0;
+    text-align: center;
   }
   /* Space out the masthead */
   .header {
@@ -80,4 +75,24 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+.welcome{
+    padding: 20px;
+}
+
+.match{
+    margin: 20px;
+}
+
+.confirm{
+    background-color: #90ee90;
+    padding: 20px;
+    text-align: center;
+    /* color: black; */
+    font-weight: bold;
+}
+
+.green{
+    color:#008000;
 }

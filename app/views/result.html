@@ -1,0 +1,52 @@
+<div class="row">
+    
+    <label>Date: {{}}</label>
+    
+    <div class="row">
+        <div class="col-md-6">
+            Team 1 : {{team1}}
+        </div>
+        <div class="col-md-6">
+            Team 2 : {{team2}}
+        </div>
+    </div>
+    
+    <div class="row">
+        Winning team is {{}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Predicted Correct</th>            
+                </tr>
+            </thead>
+            <tbody>        
+                <tr ng-repeat="bet in winners">
+                    <td>{{bet.name}}</td>        
+                </tr>      
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-md-6">
+         <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Prediction gone wrong</th>            
+                </tr>
+            </thead>
+            <tbody>        
+                <tr ng-repeat="bet in loosers">
+                    <td>{{bet.name}}</td>        
+                </tr>      
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+

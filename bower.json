@@ -7,7 +7,8 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",
-    "angular-route": "^1.5.3"
+    "angular-route": "^1.5.3",
+    "bootbox.js": "bootbox#^4.4.0"
   },
   "appPath": "app",
   "moduleName": "iplApp",

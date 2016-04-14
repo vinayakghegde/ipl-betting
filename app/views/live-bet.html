@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{team1}}</th>            
+                </tr>
+            </thead>
+            <tbody>        
+                <tr ng-repeat="bet in betters1">
+                    <td>{{bet.name}}</td>        
+                </tr>      
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-md-6">
+         <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{team2}}</th>            
+                </tr>
+            </thead>
+            <tbody>        
+                <tr ng-repeat="bet in betters2">
+                    <td>{{bet.name}}</td>        
+                </tr>      
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+

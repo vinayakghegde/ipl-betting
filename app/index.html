@@ -13,6 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    
     <!-- endbuild -->
   </head>
   <body ng-app="iplApp">
@@ -33,28 +34,34 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">ipl</a>
+            <a class="navbar-brand" href="#/">IPL2016 Betting Game</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+            <ul class="nav navbar-nav" ng-init="selected=1">
+              <li class="active" ng:click="selected=1" ng:class="{'active' : selected==1 }"><a href="#today-match">Today's Matches</a></li>
+              <li ng:click="selected=2" ng:class="{'active' : selected==2 }"><a ng-href="#live-bet">Live Betting</a></li>
+              <li ng:click="selected=3" ng:class="{'active' : selected==3 }"><a ng-href="#result">Results</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
-    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+
+    <div class="container" ng-view>
+    Loading...
     </div>
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span></span>&copy Copyright
+        <script language="JavaScript" type="text/javascript">
+    var now = new Date()
+    var theYear=now.getFullYear()
+    document.write(theYear)
+</script></p>
       </div>
     </div>
 
@@ -76,12 +83,15 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.min.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
          <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+         <script src="bower_components/bootbox.js/bootbox.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        
+        
         <!-- endbuild -->
 </body>
 </html>
