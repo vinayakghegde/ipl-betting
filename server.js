@@ -7,8 +7,40 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
+var WindowsStrategy = require('passport-windowsauth');
+var passport = require('passport');
 // configuration ===========================================
     
+    
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+    done(null, user); 
+    console.log(user);   
+});
+
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+    console.log(user);
+});
+
+passport.use(new WindowsStrategy({
+    integrated: true 
+}, function(profile,done) {
+    var user = {
+        id: profile.id,
+    };
+    console.log(user);
+    done(null, user);
+}));
+
+app.all("*", passport.authenticate("WindowsAuthentication"), function (request,response,next){
+    console.log(request);
+    next();
+});
+
+
 // config files
 var db = {
         url : 'mongodb://localhost/ipl'
@@ -54,3 +86,7 @@ console.log('Magic happens on port ' + port);
 
 // expose app           
 exports = module.exports = app;   
+
+
+
+// references http://stackoverflow.com/questions/16040067/nodejs-or-expressjs-windows-authentication

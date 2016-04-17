@@ -43,5 +43,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "passport": "^0.3.2",
+    "passport-windowsauth": "^1.0.0"
   }
 }

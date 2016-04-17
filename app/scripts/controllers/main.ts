@@ -26,6 +26,18 @@ module iplApp {
      $scope.team1 = team1;
      $scope.team2 = team2;
      
+     $http.get("/api/products").success(()=>{
+         // already voted
+         // redirect to confirmation
+         
+         //else
+        //  $scope.team1 = team1;
+        //  $scope.team2 = team2;
+     })
+     .error(()=>{
+         // redirect to error page
+     });
+     
      $scope.onTeam1Click = function(){
          onTeamClick(true,$http,$location);
      }
@@ -39,7 +51,7 @@ module iplApp {
   function onTeamClick(IsTeam1,$http,$location){
       bootbox.dialog({
         message: "Please make sure before you proceed!",
-        title: "Confirm",
+        title: "Confirmation",
         buttons: {
         success: {
         label: "I confirm",
@@ -69,10 +81,10 @@ module iplApp {
         }
         },
         main: {
-        label: "I am neutral",
+        label: "I will not participate",
         className: "btn-primary",
         callback: function() {
-        // tie / neutral
+        $location.path("/live-bet");
         }
         }
         }
@@ -85,8 +97,11 @@ module iplApp {
      $scope.team1 = team1;
      $scope.team2 = team2;
      
-     $http.get("/api/products").success(function(res){
-         $scope.betters = res.data;
+     $http.get("/api/products").success((res)=>{
+         // divide the response into team1 / team2 supporters
+     })
+     .error((res)=>{
+         // $scope.IsError = error occurred
      });
     }
   }
@@ -96,6 +111,10 @@ module iplApp {
     constructor (private $scope: IMainScope,private $http: ng.IHttpService, private $location: ng.ILocationService) {
      $scope.team1 = team1;
      $scope.team2 = team2;
+     
+     // use previous schema
+     // http get
+     // divide winners / loosers by IsTeam1Won field
     }
   }
 }
